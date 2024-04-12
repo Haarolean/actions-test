@@ -29,6 +29,7 @@ jobs:
       - name: test
         id: test
         run: |
+          mkdir -p /tmp/reports
           echo "bruh" > /tmp/reports/bruh.txt
 
       - name: Upload Artifacts
