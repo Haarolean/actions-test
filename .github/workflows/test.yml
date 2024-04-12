@@ -29,13 +29,13 @@ jobs:
       - name: test
         id: test
         run: |
-          echo "bruh" > /tmp/bruh.txt
+          echo "bruh" > /tmp/reports/bruh.txt
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: test
-          path: /tmp/bruh.txt
+          path: /tmp/reports/
 
   test:
     runs-on: ubuntu-latest
@@ -49,15 +49,16 @@ jobs:
       - name: test2
         id: test2
         run: |
-          cat /tmp/bruh.txt || exit 0
+          cat /tmp/reports/bruh.txt || exit 0
 
 
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
           name: test
+          path: /tmp/
 
       - name: test3
         id: test3
         run: |
-          cat /tmp/bruh.txt || exit 0
+          cat /tmp/reports/bruh.txt
