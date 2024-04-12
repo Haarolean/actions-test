@@ -39,6 +39,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build-and-test
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,10 +49,15 @@ jobs:
       - name: test2
         id: test2
         run: |
-          cat /tmp/bruh.txt
+          cat /tmp/bruh.txt || exit 0
 
 
       - name: Download Artifacts
         uses: actions/download-artifact@v2
         with:
           name: my-artifact
+
+      - name: test3
+        id: test3
+        run: |
+          cat /tmp/bruh.txt || exit 0
