@@ -55,7 +55,7 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v2
         with:
-          name: my-artifact
+          name: test
 
       - name: test3
         id: test3
