@@ -1,4 +1,4 @@
-name: "E2E: Automation suite"
+name: "Transfer artifacts test"
 on:
   workflow_dispatch:
     inputs:
